@@ -45,3 +45,4 @@ if (a > b && a < c) {
   console.log("dung");
 }
 
+// tóm là && sẽ đi tìm false còn || sẽ đi tìm true
