@@ -147,3 +147,42 @@ var totalCoin1 = courses3.reduce2(function (total, course) {
   return total + course;
 });
 console.log(totalCoin1)
+
+
+Array.prototype.every1 = function(callBack){
+  var lengthArray = this.length;
+  if(typeof callBack !== 'function'){
+    return "Không phải là funciton"
+  }
+  for(let i=0;i<lengthArray;++i){
+    var result = callBack(this[i],i,this);
+    if(!result){
+      return false;
+    }
+  }
+
+  return true;
+}
+var isTrue = courses1.every1(function(course){
+  return course.coin > 10
+})
+console.log(isTrue)
+
+Array.prototype.some1 = function(callBack){
+  var lengthArray = this.length;
+  if(typeof callBack !== 'function'){
+    return "Không phải là funciton"
+  }
+  for(let i=0;i<lengthArray;++i){
+    var result = callBack(this[i],i,this);
+    if(result){
+      return true;
+    }
+  }
+
+  return false;
+}
+var isTrue = courses1.some1(function(course){
+  return course.coin  < 200
+})
+console.log(isTrue)
